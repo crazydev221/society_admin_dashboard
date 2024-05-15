@@ -202,8 +202,7 @@ class Component extends React.Component {
                                                         icon="pa"
                                                     />
                                                     <SidebarItem
-                                                        // url="/corporate/calendar_docs"
-                                                        target="_blank"
+                                                        url="/juniors"
                                                         title="Junior Purple Society"
                                                         icon="j"
                                                     />

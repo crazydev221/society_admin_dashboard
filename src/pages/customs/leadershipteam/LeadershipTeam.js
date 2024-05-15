@@ -3,49 +3,49 @@ import React, { useEffect, useState } from 'react';
 import { URLS } from '../../../constants/consts';
 import { withRouter } from 'react-router-dom';
 
-import NitaliaBlanketService from '../../../services/NitaliaBlanketService';
+import JuniorPurpleSocietyService from '../../../services/JuniorPurpleSocietyService';
 
-function NitaliaBlankets(props) {
+function JuniorPurpleSociety(props) {
 
-    var [nitaliablankets, setNitaliaBlankets] = useState([]);
+    var [juniorpurplesocieties, setJuniorPurpleSocieties] = useState([]);
 
     useEffect(() => {
-        NitaliaBlanketService.getLists().then((res) => {
-            setNitaliaBlankets(res.data.nitaliablankets);
+        JuniorPurpleSocietyService.getLists().then((res) => {
+            setJuniorPurpleSocieties(res.data.juniorpurplesocieties);
         }).catch((err) => {
-            console.error('Error getting nitaliablankets', err);
+            console.error('Error getting juniorpurplesocieties', err);
         })
     }, []);
 
-    const addNitaliaBlanket = () => {
-        props.history.push(`/add-nitaliablanket/_add`);
+    const addJuniorPurpleSociety = () => {
+        props.history.push(`/add-juniors/_add`);
     }
 
-    const editNitaliaBlanket = (id) => {
-        props.history.push(`/add-nitaliablanket/${id}`);
+    const editJuniorPurpleSociety = (id) => {
+        props.history.push(`/add-juniors/${id}`);
     }
 
-    const deleteNitaliaBlanket = async (id) => {
-        if (!window.confirm("Confirm Nitalia Blanket deletion attempt!")) {
+    const deleteJuniorPurpleSociety = async (id) => {
+        if (!window.confirm("Confirm Purple Apartment deletion attempt!")) {
             return;
         }
 
-        await NitaliaBlanketService.delete(id);
-        let res = await NitaliaBlanketService.getLists();
-        setNitaliaBlankets(res.data.nitaliablankets);
+        await JuniorPurpleSocietyService.delete(id);
+        let res = await JuniorPurpleSocietyService.getLists();
+        setJuniorPurpleSocieties(res.data.juniorpurplesocieties);
     }
 
     return (
         <div className='w-full max-w-[900px] text-center mx-auto pt-16'>
             <h1 className='font-semibold text-3xl'>
-                Nitalia Blankets List
+                Junior Purple Society List
             </h1>
             <div className='w-full flex flex-col justify-center items-start my-9 p-3'>
                 <button
-                    onClick={() => addNitaliaBlanket()}
+                    onClick={() => addJuniorPurpleSociety()}
                     className='btn btn-primary mb-3 p-3'
                 >
-                    Add Nitalia Blanket
+                    Add Junior Purple Society
                 </button>
 
                 <table className='w-full text-sm text-start border border-collapse border-slate-400'>
@@ -57,25 +57,25 @@ function NitaliaBlankets(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {nitaliablankets.map((nitaliablanket, index) => (
+                        {juniorpurplesocieties.map((junior, index) => (
                             <tr className='hover:bg-gray-200' key={index}>
-                                <td className="h-full p-3 border border-slate-300"> {nitaliablanket.title} </td>
+                                <td className="h-full p-3 border border-slate-300"> {junior.title} </td>
                                 <td className="h-full p-3 border border-slate-300">
                                     <img className="main-img"
-                                        src={URLS.imageURL + '/uploads/nitaliablankets/' + nitaliablanket.picture}
+                                        src={URLS.imageURL + '/uploads/juniorpurplesocieties/' + junior.picture}
                                         alt="" />
                                 </td>
                                 <td className="h-full p-3 border border-b-0 border-t-slate-300">
                                     <div className='h-full gap-3 flex flex-col'>
                                         <button
                                             className="btn btn-info"
-                                            onClick={() => editNitaliaBlanket(nitaliablanket._id)}
+                                            onClick={() => editJuniorPurpleSociety(junior._id)}
                                         >
                                             Update
                                         </button>
                                         <button
                                             className="btn btn-danger"
-                                            onClick={() => deleteNitaliaBlanket(nitaliablanket._id)}
+                                            onClick={() => deleteJuniorPurpleSociety(junior._id)}
                                         >
                                             Delete
                                         </button>
@@ -91,4 +91,4 @@ function NitaliaBlankets(props) {
     )
 }
 
-export default withRouter(NitaliaBlankets);
+export default withRouter(JuniorPurpleSociety);

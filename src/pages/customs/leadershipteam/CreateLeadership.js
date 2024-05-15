@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import PurpleApartmentService from '../../../services/PurpleApartmentService';
+import JuniorPurpleSocietyService from '../../../services/JuniorPurpleSocietyService';
 import FileUpload from '../../../components/Forms/Elements/FileUpload';
 
 import { URLS } from '../../../constants/consts';
 
-function CreateNitaliaBlanket(props) {
+function CreateJuniorPurpleSocity(props) {
 
   const [title, setTitle] = useState('');
   const [picture, setPicture] = useState('');
   const [uploadImage, setUploadImage] = useState(null);
 
   const path = props.location.pathname;
-  const apartment_id = path.slice(path.lastIndexOf('/') + 1);
+  const junior_id = path.slice(path.lastIndexOf('/') + 1);
 
   useEffect(() => {
-    if (apartment_id !== '_add') {
-      PurpleApartmentService.getById(apartment_id).then((res) => {
+    if (junior_id !== '_add') {
+      JuniorPurpleSocietyService.getById(junior_id).then((res) => {
         setTitle(res.data.title);
         setPicture(res.data.picture);
       })
     }
   }, []);
 
-  const handlePurpleApartmentSubmit = async () => {
+  const handleJuniorSubmit = async () => {
     try {
       const formData = new FormData();
       formData.append("title", title);
@@ -33,13 +33,13 @@ function CreateNitaliaBlanket(props) {
         formData.append("image", uploadImage);
       }
 
-      if (apartment_id === '_add') {
-        await PurpleApartmentService.create(formData);
+      if (junior_id === '_add') {
+        await JuniorPurpleSocietyService.create(formData);
       } else {
-        await PurpleApartmentService.update(formData, apartment_id);
+        await JuniorPurpleSocietyService.update(formData, junior_id);
       }
 
-      props.history.push('/purpleapartments');
+      props.history.push('/juniors');
 
     } catch (err) {
       console.error('Error handling Update');
@@ -54,7 +54,7 @@ function CreateNitaliaBlanket(props) {
     <div className='w-full max-w-[768px] text-center mx-auto pt-16'>
       <div className='max-w-[600px] mx-auto bg-white p-3 border border-gray-300 shadow-md rounded-lg'>
         <h1 className='text-3xl font-semibold'>
-          Add | Update Nitalia Blankets
+          Add | Update Junior Purple Society
         </h1>
         <div className='flex flex-col justify-center items-center text-start p-6'>
           <div className='w-full py-2'>
@@ -70,19 +70,19 @@ function CreateNitaliaBlanket(props) {
 
           <div className="w-full py-2">
             <label> Picture: </label>
-            <img src={URLS.imageURL + '/uploads/purpleapartments/' + picture} alt='original' />
+            <img src={URLS.imageURL + '/uploads/juniorpurplesocieties/' + picture} alt='original' />
             <FileUpload onChangeImage={addUploadImage} />
           </div>
 
           <div className='flex justify-start w-full gap-3 p-2'>
             <button
               className="btn btn-success p-2"
-              onClick={() => handlePurpleApartmentSubmit()}
+              onClick={() => handleJuniorSubmit()}
             >
               Save
             </button>
             <button
-              onClick={() => { props.history.push('/purpleapartments') }}
+              onClick={() => { props.history.push('/juniors') }}
               className="btn btn-danger p-2"
             >
               Cancel
@@ -94,4 +94,4 @@ function CreateNitaliaBlanket(props) {
   )
 }
 
-export default withRouter(CreateNitaliaBlanket);
+export default withRouter(CreateJuniorPurpleSocity);

@@ -15,6 +15,10 @@ import OurWorksGallery from "../pages/customs/outworks/OurWorksGallery";
 import CreateOurWork from "../pages/customs/outworks/CreateOurWork";
 import NitaliaBlanket from "../pages/customs/nitaliablanket/NitaliaBlanket";
 import CreateNitaliaBlankets from "../pages/customs/nitaliablanket/CreateNitaliaBlanket";
+import PurpleApartment from "../pages/customs/purpleapartment/PurpleApartment";
+import CreatePurpleApartment from "../pages/customs/purpleapartment/CreatePurpleApartment";
+import JuniorPurpleSociety from "../pages/customs/juniorpurplesociety/JuniorPurpleSociety";
+import CreateJuniorPurpleSociety from "../pages/customs/juniorpurplesociety/CreateJuniorPurpleSociety";
 
 const Corporate = ({ location }) => {
   let path = location.pathname;
@@ -43,10 +47,13 @@ const Corporate = ({ location }) => {
             <Route exact path="/supports" component={Supports} />
             <Route exact path="/ourworks" component={OurWorksGallery} />
             <Route exact path="/nitaliablankets" component={NitaliaBlanket} />
+            <Route exact path="/purpleapartments" component={PurpleApartment} />
+            <Route exact path="/juniors" component={JuniorPurpleSociety} />
             <Route exact path="/add-support/:_id" component={CreateSupport} />
             <Route exact path="/add-ourwork/:_id" component={CreateOurWork} />
             <Route exact path="/add-nitaliablanket/:_id" component={CreateNitaliaBlankets} />
-            
+            <Route exact path="/add-purpleapartment/:_id" component={CreatePurpleApartment} />
+            <Route exact path="/add-juniors/:_id" component={CreateJuniorPurpleSociety} />
             <Route exact path="/logout" component={Logout} />
           </>
         )}
