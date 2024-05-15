@@ -1,0 +1,73 @@
+.page-item.active .page-link {
+    z-index: 2;
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #272727;
+    opacity: 1;
+    border: oldlace;
+    font-size: 11px;
+}
+
+.page-link {
+    z-index: 2;
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #cfcece;
+    opacity: 1;
+    border: oldlace;
+    font-size: 11px;
+}
+
+.react-bootstrap-table-pagination {
+    padding-top: 5px;
+}
+
+.order-4 {
+    order: 4;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th .caret-4-desc:before {
+    margin-left: 3.5px;
+    content: "\2191";
+    opacity: 0.4;
+    font-size: 13px;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th .caret-4-desc:after {
+    content: "\2193";
+    font-size: 13px;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th .caret-4-asc:before {
+    margin-left: 3.5px;
+    content: "\2191";
+    font-size: 13px;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th .caret-4-asc:after {
+    content: "\2193";
+    opacity: 0.4;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th .order-4:before {
+    margin-left: 3.5px;
+    content: "\2191";
+    opacity: 0.4;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th .order-4:after {
+    content: "\2193";
+    opacity: 0.4;
+    font-size: 13px;
+    font-size: 16px !important;
+}
+
+.react-bootstrap-table th.sortable {
+    cursor: pointer;
+}

@@ -1,0 +1,14 @@
+@media (min-width: 1430px) {
+	.over-layer-height {
+		height: 130px !important;
+	}
+	.res-image {
+		height: 100% !important;
+	}
+}
+
+@media (min-width: 1330px) {
+	.gallery {
+		padding-left: 7%;
+	}
+}

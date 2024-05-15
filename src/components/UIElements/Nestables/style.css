@@ -1,0 +1,56 @@
+.nestable-one .nestable-item-name {
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.nestable-two .nestable-item-name {
+    background-color: white;
+    padding: 5px 0px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.nestable-three .nestable-item-name {
+    border-color: rgba(224,224,224,.7);
+    color: #4b4b4b;
+    transition: backgroud .2s ease-in;
+    border: 1px solid #e5e9ec;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.nestable-four .nestable-item-name {
+    color: #4b4b4b;
+    background: #f4f4f4;
+    border: none;
+    transition: backgroud .2s ease-in;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+span.grippy {
+    content: '....';
+    width: 10px;
+    height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 5px;
+    padding: 3px 0px;
+    cursor: move;
+    vertical-align: middle;
+    margin-top: -.7em;
+    margin-right: .3em;
+    font-size: 12px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    color: #cccccc;
+    text-shadow: 1px 0 1px black;
+}
+ 
+span.grippy::after {
+    content: '.. .. .. ..';
+}
